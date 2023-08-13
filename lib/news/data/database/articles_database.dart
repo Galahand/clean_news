@@ -7,8 +7,8 @@ import '../model/entity/article_entity.dart';
 
 const _tableName = 'News';
 
-class ArticlesDatababse {
-  const ArticlesDatababse(this.database);
+class ArticlesDatabase {
+  const ArticlesDatabase(this.database);
 
   final BaseDatabase database;
 
@@ -24,7 +24,7 @@ class ArticlesDatababse {
   }
 }
 
-ArticlesDatababse buildDefaultNewsDatabase() {
+ArticlesDatabase buildDefaultNewsDatabase() {
   Future<void> onDatabaseCreation(Database database, int version) async {
     await database.execute('create table $_tableName ('
         'id integer primary key autoincrement, '
@@ -39,5 +39,5 @@ ArticlesDatababse buildDefaultNewsDatabase() {
   }
 
   const databaseName = 'news_db';
-  return ArticlesDatababse(BaseDatabase(databaseName, onDatabaseCreation));
+  return ArticlesDatabase(BaseDatabase(databaseName, onDatabaseCreation));
 }

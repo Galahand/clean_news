@@ -51,7 +51,6 @@ class _MyAppState extends State<MyApp> {
   }
 
   void setGlobalBindings() {
-    print("Putting error emitter");
     Get.put(ErrorEmitter(), permanent: true);
   }
 }
