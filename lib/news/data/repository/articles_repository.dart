@@ -11,7 +11,7 @@ class ArticlesRepository {
   ArticlesRepository(this.api, this.database);
 
   final ArticlesApi api;
-  final ArticlesDatababse database;
+  final ArticlesDatabase database;
   final _articlesSubject = BehaviorSubject<List<ArticleEntity>>();
 
   Stream<List<ArticleEntity>> get headlinesStream {

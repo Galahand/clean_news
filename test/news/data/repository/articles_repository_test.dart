@@ -10,7 +10,7 @@ import 'package:mocktail/mocktail.dart';
 
 class MockArticlesApi extends Mock implements ArticlesApi {}
 
-class MockArticlesDatabase extends Mock implements ArticlesDatababse {}
+class MockArticlesDatabase extends Mock implements ArticlesDatabase {}
 
 void main() {
   const mockArticleResponse = ArticleResponse(
@@ -35,7 +35,7 @@ void main() {
   );
 
   late ArticlesApi mockArticlesApi;
-  late ArticlesDatababse mockArticlesDatabase;
+  late ArticlesDatabase mockArticlesDatabase;
 
   setUp(() {
     mockArticlesApi = MockArticlesApi();
