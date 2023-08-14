@@ -40,6 +40,7 @@ class HomeController extends GetxController {
     articles.close();
     refreshTimer.cancel();
     subscription.cancel();
+    repository.clear();
     super.onClose();
   }
 

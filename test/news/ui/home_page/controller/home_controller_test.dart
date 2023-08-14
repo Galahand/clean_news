@@ -34,6 +34,8 @@ void main() {
         .thenAnswer((_) => mockHeadlinesStream.stream);
     when(() => mockArticlesRepository.refreshArticleHeaders(any()))
         .thenAnswer((_) => Future.value());
+    when(() => mockArticlesRepository.clear())
+        .thenAnswer((_) => Future.value());
   });
 
   tearDown(() {
@@ -91,6 +93,14 @@ void main() {
     controller.onClose();
 
     expect(controller.articles.subject.isClosed, isTrue);
+  });
+
+  test('close clears repository', () {
+    final controller = buildHomeController();
+    controller.onInit();
+    controller.onClose();
+
+    verify(() => mockArticlesRepository.clear()).called(1);
   });
 
   test('articles first state is loading', () async {
