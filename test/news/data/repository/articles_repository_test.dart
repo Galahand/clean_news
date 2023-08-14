@@ -99,4 +99,13 @@ void main() {
     expect(savedArticle.id, null);
     expect(savedArticle.saved, true);
   });
+
+  test('clear closes database', () async {
+    when(() => mockArticlesDatabase.close()).thenAnswer((_) => Future.value());
+
+    final repository = buildTestRepository();
+    await repository.clear();
+
+    verify(() => mockArticlesDatabase.close()).called(1);
+  });
 }

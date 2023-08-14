@@ -12,7 +12,7 @@ class BaseDatabase {
   Future<Database> get database async {
     var result = _database;
 
-    if (result != null) return result;
+    if (result != null && result.isOpen) return result;
 
     result = await open();
     _database = result;
@@ -30,5 +30,9 @@ class BaseDatabase {
 
   Future<List<Map<String, dynamic>>> query(String table) {
     return database.then((value) => value.query(table));
+  }
+
+  Future<void> close() async {
+    await _database?.close();
   }
 }

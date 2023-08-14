@@ -32,6 +32,10 @@ class ArticlesRepository {
     final article = _articlesSubject.value[index].toggleSaved();
     return database.saveArticle(article);
   }
+
+  Future<void> clear() {
+    return database.close();
+  }
 }
 
 extension on ArticleResponse {
