@@ -1,5 +1,7 @@
 # clean_news
 
+The flutter version 3.10.6 is recommended
+
 To run this project please add the following run args:
 
 ```

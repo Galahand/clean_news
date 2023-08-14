@@ -63,10 +63,7 @@ class MockHome extends StatelessWidget {
     return Scaffold(
       body: Center(
         child: MaterialButton(
-          onPressed: () async {
-            await Get.toNamed(HomePage.routeName);
-            await Future.delayed(const Duration(seconds: 2));
-          },
+          onPressed: () => Get.toNamed(HomePage.routeName),
           child: const Text("Go to news"),
         ),
       ),
