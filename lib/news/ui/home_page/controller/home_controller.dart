@@ -5,7 +5,7 @@ import 'package:get/get.dart';
 
 import '../../../../shared/data/model/result.dart';
 import '../../../data/model/entity/article_entity.dart';
-import '../model/article.dart';
+import '../../articles/model/article.dart';
 
 class HomeController extends GetxController {
   HomeController(this.repository);
@@ -59,6 +59,6 @@ class HomeController extends GetxController {
 
 extension on ArticleEntity {
   Article toUi() {
-    return Article(author, title, description, content, publishedAt, saved);
+    return Article(author, title, description, content, publishedAt);
   }
 }

@@ -1,5 +1,5 @@
-import 'package:clean_news/news/ui/home_page/component/article_tile.dart';
-import 'package:clean_news/news/ui/home_page/model/article.dart';
+import 'package:clean_news/news/ui/articles/component/article_tile.dart';
+import 'package:clean_news/news/ui/articles/model/article.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
@@ -10,7 +10,6 @@ void main() {
     'description',
     'content',
     'date',
-    false,
   );
 
   testWidgets('Displays correctly', (tester) async {

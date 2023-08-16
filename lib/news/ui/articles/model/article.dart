@@ -5,7 +5,6 @@ class Article {
     this.description,
     this.content,
     this.date,
-    this.liked,
   );
 
   final String? author;
@@ -13,5 +12,4 @@ class Article {
   final String? description;
   final String? content;
   final String date;
-  final bool liked;
 }
