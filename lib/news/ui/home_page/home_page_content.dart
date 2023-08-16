@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
 import '../../../shared/data/model/result.dart';
-import 'component/article_tile.dart';
-import 'model/article.dart';
+import '../articles/component/article_tile.dart';
+import '../articles/model/article.dart';
 
 class HomePageContent extends StatelessWidget {
   const HomePageContent({

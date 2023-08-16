@@ -29,7 +29,7 @@ class ArticleTile extends StatelessWidget {
           Text(article.content!),
           const SizedBox(height: 12),
         ],
-        SaveButton(liked: article.liked, onPressed: onSaveButtonPressed),
+        SaveButton(onPressed: onSaveButtonPressed),
       ],
     );
   }
@@ -38,22 +38,16 @@ class ArticleTile extends StatelessWidget {
 class SaveButton extends StatelessWidget {
   const SaveButton({
     Key? key,
-    required this.liked,
     required this.onPressed,
   }) : super(key: key);
 
   final VoidCallback onPressed;
-  final bool liked;
 
   @override
   Widget build(BuildContext context) {
-    final color = liked ? Colors.red : Colors.black;
-    final icon = liked ? Icons.favorite : Icons.heart_broken_outlined;
-
     return IconButton(
       onPressed: onPressed,
-      icon: Icon(icon),
-      color: color,
+      icon: const Icon(Icons.save),
     );
   }
 }

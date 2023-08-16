@@ -1,7 +1,7 @@
-import 'package:clean_news/news/ui/home_page/component/article_tile.dart';
+import 'package:clean_news/news/ui/articles/component/article_tile.dart';
+import 'package:clean_news/news/ui/articles/model/article.dart';
 import 'package:clean_news/news/ui/home_page/controller/home_controller.dart';
 import 'package:clean_news/news/ui/home_page/home_page.dart';
-import 'package:clean_news/news/ui/home_page/model/article.dart';
 import 'package:clean_news/shared/data/model/result.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -59,8 +59,8 @@ void main() {
 
   testWidgets('shows articles on success', (tester) async {
     const mockArticles = [
-      Article('authorA', 'titleA', 'descriptionA', 'contentA', 'dateA', false),
-      Article('authorB', 'titleB', 'descriptionB', 'contentB', 'dateB', false),
+      Article('authorA', 'titleA', 'descriptionA', 'contentA', 'dateA'),
+      Article('authorB', 'titleB', 'descriptionB', 'contentB', 'dateB'),
     ];
 
     await tester.pumpWidget(const MaterialApp(home: HomePage()));
@@ -74,7 +74,7 @@ void main() {
 
   testWidgets('tileSaveButton triggers controller saveArticle', (tester) async {
     const mockArticles = [
-      Article('authorA', 'titleA', 'descriptionA', 'contentA', 'dateA', false),
+      Article('authorA', 'titleA', 'descriptionA', 'contentA', 'dateA'),
     ];
 
     await tester.pumpWidget(const MaterialApp(home: HomePage()));
@@ -87,9 +87,25 @@ void main() {
     verify(() => mockHomeController.saveArticle(any())).called(1);
   });
 
+  testWidgets('tileSaveButton shows snackbar', (tester) async {
+    const mockArticles = [
+      Article('authorA', 'titleA', 'descriptionA', 'contentA', 'dateA'),
+    ];
+
+    await tester.pumpWidget(const MaterialApp(home: HomePage()));
+
+    articles(const Result.success(mockArticles));
+
+    await tester.pumpAndSettle();
+    await tester.tap(find.byType(SaveButton));
+    await tester.pumpAndSettle();
+
+    expect(find.text('Article saved'), findsOneWidget);
+  });
+
   testWidgets('tile displays data correctly', (tester) async {
     const mockArticles = [
-      Article('authorA', 'titleA', 'descriptionA', 'contentA', 'dateA', false),
+      Article('authorA', 'titleA', 'descriptionA', 'contentA', 'dateA'),
     ];
 
     await tester.pumpWidget(const MaterialApp(home: HomePage()));

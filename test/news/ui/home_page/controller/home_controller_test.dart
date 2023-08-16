@@ -2,8 +2,8 @@ import 'dart:async';
 
 import 'package:clean_news/news/data/model/entity/article_entity.dart';
 import 'package:clean_news/news/data/repository/articles_repository.dart';
+import 'package:clean_news/news/ui/articles/model/article.dart';
 import 'package:clean_news/news/ui/home_page/controller/home_controller.dart';
-import 'package:clean_news/news/ui/home_page/model/article.dart';
 import 'package:fake_async/fake_async.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
@@ -137,7 +137,6 @@ void main() {
     expect(article.title, mockArticleEntity.title);
     expect(article.description, mockArticleEntity.description);
     expect(article.content, mockArticleEntity.content);
-    expect(article.liked, mockArticleEntity.saved);
   });
 
   test(
@@ -188,7 +187,6 @@ void main() {
       expect(article.title, mockArticleEntity.title);
       expect(article.description, mockArticleEntity.description);
       expect(article.content, mockArticleEntity.content);
-      expect(article.liked, mockArticleEntity.saved);
     },
   );
 

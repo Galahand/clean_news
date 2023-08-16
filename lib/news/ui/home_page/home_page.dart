@@ -15,7 +15,15 @@ class HomePage extends StatelessWidget {
     return Obx(
       () => HomePageContent(
         newsResult: controller.articles(),
-        onTileSaveButtonPressed: controller.saveArticle,
+        onTileSaveButtonPressed: (int index) async {
+          await controller.saveArticle(index);
+          if (context.mounted) {
+            ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+              content: Text('Article saved'),
+              duration: Duration(seconds: 2),
+            ));
+          }
+        },
       ),
     );
   }
